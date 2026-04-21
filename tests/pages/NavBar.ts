@@ -6,7 +6,7 @@ export class NavBar extends BasePage {
     super(driver);
   }
 
-  async isVisible(): Promise<boolean> {
+  async isNavVisible(): Promise<boolean> {
     return super.isVisible('nav');
   }
 

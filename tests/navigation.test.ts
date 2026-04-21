@@ -11,7 +11,7 @@ describe('Navigation', () => {
   });
 
   it('navbar is visible on all pages', async () => {
-    expect(await nav.isVisible()).to.be.true;
+    expect(await nav.isNavVisible()).to.be.true;
   });
 
   it('footer is visible on all pages', async () => {
@@ -40,6 +40,6 @@ describe('Navigation', () => {
 
   it('404 page is shown for unknown routes', async () => {
     await nav.navigate('/this-page-does-not-exist');
-    expect(await nav.isVisible()).to.be.true;
+    expect(await nav.isNavVisible()).to.be.true;
   });
 });
