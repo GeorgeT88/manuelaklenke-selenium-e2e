@@ -32,10 +32,13 @@ jobs:
         run: npm ci
 
       - name: Install Chrome
+        id: setup-chrome
         uses: browser-actions/setup-chrome@v1
 
       - name: Run Selenium E2E tests
         run: npm test
+        env:
+          SE_BROWSER_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
 
       - name: Write test results summary
         if: always()
