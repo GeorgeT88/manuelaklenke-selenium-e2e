@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "test": "node --import=tsx/esm node_modules/mocha/bin/mocha.js --file tests/hooks.ts 'tests/**/*.test.ts' --timeout 30000 --exit"
+    "test": "mocha --require tsx/cjs --file tests/hooks.ts 'tests/**/*.test.ts' --timeout 30000 --exit"
   },
   "devDependencies": {
     "@types/chai": "^5.0.1",
