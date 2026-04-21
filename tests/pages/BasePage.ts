@@ -1,4 +1,5 @@
 import { WebDriver, By, until, WebElement } from 'selenium-webdriver';
+import { step } from 'allure-js-commons';
 
 export const BASE_URL = 'https://manuelaklenke.com';
 
@@ -6,7 +7,9 @@ export class BasePage {
   constructor(protected driver: WebDriver) {}
 
   async navigate(path: string = '/') {
-    await this.driver.get(`${BASE_URL}${path}`);
+    await step(`Navigate to ${path}`, async () => {
+      await this.driver.get(`${BASE_URL}${path}`);
+    });
   }
 
   async getCurrentUrl(): Promise<string> {

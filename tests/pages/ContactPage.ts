@@ -1,4 +1,5 @@
 import { WebDriver } from 'selenium-webdriver';
+import { step } from 'allure-js-commons';
 import { BasePage } from './BasePage';
 
 export class ContactPage extends BasePage {
@@ -37,18 +38,26 @@ export class ContactPage extends BasePage {
   }
 
   async fillName(value: string) {
-    await (await this.findElement('[data-testid="contact-name"]')).sendKeys(value);
+    await step(`Type name: "${value}"`, async () => {
+      await (await this.findElement('[data-testid="contact-name"]')).sendKeys(value);
+    });
   }
 
   async fillEmail(value: string) {
-    await (await this.findElement('[data-testid="contact-email"]')).sendKeys(value);
+    await step(`Type email: "${value}"`, async () => {
+      await (await this.findElement('[data-testid="contact-email"]')).sendKeys(value);
+    });
   }
 
   async fillMessage(value: string) {
-    await (await this.findElement('[data-testid="contact-message"]')).sendKeys(value);
+    await step(`Type message: "${value}"`, async () => {
+      await (await this.findElement('[data-testid="contact-message"]')).sendKeys(value);
+    });
   }
 
   async submit() {
-    await (await this.findElement('[data-testid="contact-submit"]')).click();
+    await step('Click submit button', async () => {
+      await (await this.findElement('[data-testid="contact-submit"]')).click();
+    });
   }
 }

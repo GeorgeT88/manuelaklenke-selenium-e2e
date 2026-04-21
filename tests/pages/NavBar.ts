@@ -1,4 +1,5 @@
 import { WebDriver, By, until } from 'selenium-webdriver';
+import { step } from 'allure-js-commons';
 import { BasePage } from './BasePage';
 
 export class NavBar extends BasePage {
@@ -11,8 +12,10 @@ export class NavBar extends BasePage {
   }
 
   async clickLink(href: string) {
-    const el = await this.findByXpath(`//nav//a[@href='${href}']`);
-    await el.click();
+    await step(`Click nav link: ${href}`, async () => {
+      const el = await this.findByXpath(`//nav//a[@href='${href}']`);
+      await el.click();
+    });
   }
 
   async getLanguageButton() {
@@ -24,18 +27,22 @@ export class NavBar extends BasePage {
   }
 
   async openLanguageDropdown() {
-    const btn = await this.getLanguageButton();
-    await btn.click();
-    await this.driver.wait(
-      until.elementLocated(By.xpath("//*[@role='menuitem'][contains(., 'English')]")),
-      5000
-    );
+    await step('Open language dropdown', async () => {
+      const btn = await this.getLanguageButton();
+      await btn.click();
+      await this.driver.wait(
+        until.elementLocated(By.xpath("//*[@role='menuitem'][contains(., 'English')]")),
+        5000
+      );
+    });
   }
 
   async selectLanguage(name: string) {
-    await this.openLanguageDropdown();
-    const item = await this.findByXpath(`//*[@role='menuitem'][contains(., '${name}')]`);
-    await item.click();
+    await step(`Select language: ${name}`, async () => {
+      await this.openLanguageDropdown();
+      const item = await this.findByXpath(`//*[@role='menuitem'][contains(., '${name}')]`);
+      await item.click();
+    });
   }
 
   async getLanguageButtonText(): Promise<string> {
