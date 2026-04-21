@@ -1,5 +1,5 @@
 import { Builder, WebDriver } from 'selenium-webdriver';
-import chrome from 'selenium-webdriver/chrome';
+import { Options as ChromeOptions } from 'selenium-webdriver/chrome.js';
 
 export const BASE_URL = 'https://manuelaklenke.com';
 
@@ -12,7 +12,7 @@ export function getDriver(): WebDriver {
 }
 
 before(async () => {
-  const options = new chrome.Options();
+  const options = new ChromeOptions();
   options.addArguments('--headless=new', '--no-sandbox', '--disable-dev-shm-usage', '--window-size=1280,800');
 
   global.driver = await new Builder()
