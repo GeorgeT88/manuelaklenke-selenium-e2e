@@ -19,22 +19,22 @@ describe('Navigation', () => {
   });
 
   it('can navigate to About page via navbar', async () => {
-    await nav.clickLink('about me');
+    await nav.clickLink('/about');
     expect(await nav.getCurrentUrl()).to.include('/about');
   });
 
   it('can navigate to Portfolio page via navbar', async () => {
-    await nav.clickLink('translated books');
+    await nav.clickLink('/portfolio');
     expect(await nav.getCurrentUrl()).to.include('/portfolio');
   });
 
   it('can navigate to Events page via navbar', async () => {
-    await nav.clickLink('events');
+    await nav.clickLink('/events');
     expect(await nav.getCurrentUrl()).to.include('/events');
   });
 
   it('can navigate to Contact page via navbar', async () => {
-    await nav.clickLink('contact');
+    await nav.clickLink('/contact');
     expect(await nav.getCurrentUrl()).to.include('/contact');
   });
 

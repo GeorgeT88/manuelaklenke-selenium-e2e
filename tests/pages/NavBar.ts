@@ -10,11 +10,8 @@ export class NavBar extends BasePage {
     return super.isVisible('nav');
   }
 
-  async clickLink(nameFragment: string) {
-    const lower = nameFragment.toLowerCase();
-    const el = await this.findByXpath(
-      `//nav//a[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '${lower}')]`
-    );
+  async clickLink(href: string) {
+    const el = await this.findByXpath(`//nav//a[@href='${href}']`);
     await el.click();
   }
 
