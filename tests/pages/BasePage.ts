@@ -47,7 +47,7 @@ export class BasePage {
   }
 
   async getMainContent(): Promise<WebElement> {
-    return this.findElement('#main');
+    return this.waitForElement('#main');
   }
 
   async getH1Count(): Promise<number> {
@@ -59,8 +59,6 @@ export class BasePage {
   }
 
   async getSkipLinks(): Promise<WebElement[]> {
-    return this.findAllByXpath(
-      "//a[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'skip')]"
-    );
+    return this.findElements('[data-testid="skip-to-content"]');
   }
 }
