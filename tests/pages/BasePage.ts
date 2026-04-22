@@ -1,5 +1,5 @@
 import { WebDriver, By, until, WebElement } from 'selenium-webdriver';
-import { step } from 'allure-js-commons';
+import { step } from './step';
 
 export const BASE_URL = 'https://manuelaklenke.com';
 

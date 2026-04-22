@@ -1,5 +1,5 @@
 import { WebDriver } from 'selenium-webdriver';
-import { step } from 'allure-js-commons';
+import { step } from './step';
 import { BasePage } from './BasePage';
 
 export class ContactPage extends BasePage {
