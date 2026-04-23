@@ -1,4 +1,4 @@
-# 🔬 Selenium E2E Tests — manuelaklenke.com
+# <img src="https://raw.githubusercontent.com/SeleniumHQ/seleniumhq.github.io/trunk/website_and_docs/static/images/selenium_logo_square_green.png" height="28" align="center" /> Selenium E2E Tests — manuelaklenke.com
 
 End-to-end test suite for [manuelaklenke.com](https://manuelaklenke.com) using Selenium WebDriver and Mocha. Tests run automatically after every deployment and results are published as an Allure report to GitHub Pages.
 
