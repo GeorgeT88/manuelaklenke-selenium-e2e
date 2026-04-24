@@ -98,6 +98,9 @@ Tests are triggered automatically by [GeorgeT88/manuelaklenke-web](https://githu
 🔬 35 Selenium tests run against https://manuelaklenke.com
         ↓
 📊 Allure report published to GitHub Pages
+
+(in parallel: 🎭 Playwright E2E, 🌲 Cypress E2E)
+(after all E2E: 🔒 Snyk SCA + 🔎 Semgrep SAST in parallel)
 ```
 
 Tests can also be triggered manually from **Actions → Selenium E2E Tests → Run workflow**, and run on a nightly schedule at **07:00 UTC**.
