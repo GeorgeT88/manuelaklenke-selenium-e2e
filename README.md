@@ -72,7 +72,12 @@ npm install
 npm test
 ```
 
-This generates raw Allure results in `allure-results/`.
+**Run tests with raw Allure results:**
+```bash
+npm run test:allure
+```
+
+This writes raw Allure results to `allure-results/`.
 
 **Generate and open the Allure report:**
 ```bash

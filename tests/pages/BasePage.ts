@@ -9,6 +9,7 @@ export class BasePage {
   async navigate(path: string = '/') {
     await step(`Navigate to ${path}`, async () => {
       await this.driver.get(`${BASE_URL}${path}`);
+      await this.driver.wait(until.elementLocated(By.css('main')), 10000);
     });
   }
 
@@ -62,6 +63,6 @@ export class BasePage {
   }
 
   async getSkipLinks(): Promise<WebElement[]> {
-    return this.findElements('[data-testid="skip-to-content"]');
+    return this.findElements('a[href="#main"]');
   }
 }
